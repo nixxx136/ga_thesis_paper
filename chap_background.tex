@@ -21,7 +21,10 @@ When we apply GA to find our optimal solutions, we can divide those problems int
 
 In the real word, there are many this kind of simultaneous optimization of multiple objectives problems. People have tried many methods to find the Pareto Optimal Solution. The classical method is to convert multiobjective problem to one objective problem. In paper \cite{NSGA_1994}, author introduced three classical methods: 1. Method of Objective Weighting, 2. Method of Distance Functions, and 3. Min-Max Formulation. All those methods have one common drawback: it can only give us a single-point solution. However, when decision makers make decision, they often need different alternatives. Another significant drawback of those method is they heavily depend on what weight vector or demand level we choose. So those methods are not efficiency and we probably need to try many times to get a acceptable solution.
 
+Since classical methods to solve multiobjective optimization problems are inadequate and inconvenient, people start to find other ways to implement GA. Next, we will briefly introduce some of those implementations.
+
 \subsection{Vector Evaluated Genetic Algorithm(VEGA)}
+VEGA is the first practical algorithm and was developed by Schaffer in 1985\cite{Schaffer_1985_Some}. Instead of changing multiple objective problem to single objective problem, Schaffer modified the simple tripartite genetic algorithm by performing independent selection cycles according to each objective.
 
 \subsection{Nondominated Sorting Genetic Algorithm(NSGA)}
 
