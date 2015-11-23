@@ -10,7 +10,7 @@ Based on the previous work of people using NSGA-II on some multi-objective optim
 After the Genetic Algorithm was introduced in 1975 by John Henry Holland\cite{Holland_1975_Book}, it has been applied in many areas. With mimicking the process of natural selection, GA uses selection, crossover, and mutation to generate solutions and try to find the optimal solution for our problems. More specifically, we have a initial population size, then based on our criterion or objective, we give each individual a fitness value. After we select a certain number of individuals from our population based on their fitness and apply our crossover function with a crossover probability to have some new offsprings. Last, we apply the mutation function with a mutation probability on the new offsprings. Then, we have a new population and repeat our steps until we achieve our optimal solution.
 
 \subsection{Multiobjective Genetic Algorithm(MOGA)}
-When we apply GA to find our optimal solutions, we can divide those problems into two categories based on the number of objectives: Single Objective problems and Multi-Objective problems. Let's take a simple example for single objectives first. For example we want to find the minimum value of \(y=x^2\) with \(x\in [-3,3]\), it is easy to see that we could achieve the minimun value at \(x=0\). While, when we have two objectives, problem becomes complicated. For example we want to minimize both \(y_{1}=x^2\) and \(y_{2}=(x-2)^2\). Then we won't be able to find a specific \(x\) value for it. From Firuge 1, any points between \(0\) and \(2\) could be a valid compromise solution. 
+When we apply GA to find our optimal solutions, we can divide those problems into two categories based on the number of objectives: Single Objective problems and Multi-Objective problems. Let's take a simple example for single objectives first. For example we want to find the minimum value of \(y=x^2\) with \(x\in [-3,3]\), it is easy to see that we could achieve the minimun value at \(x=0\). While, when we have two objectives, problem becomes complicated. For example we want to minimize both \(y_{1}=x^2\) and \(y_{2}=(x-2)^2\). Then we won't be able to find a specific \(x\) value for it. From Firuge 1, \(x\) at 0 or 2 could give us minimum value of \(y_{1}=x^2\) and \(y_{2}=(x-2)^2\) individually, while we could not find a \(x\) value which could promise us both \(y_{1}\) and \(y_{2}\) at their minimun value. We call \(x=\) \(0\) or \(2\) Pareto Optimal Solutions. You could find more information about Pareto Optimal Solutions at latter sections. Other than \(x=\) \(0\) or \(2\), any points between \(0\) and \(2\) could be a valid compromise solution. 
 
 \begin{figure}[htp] 
 \centering
@@ -19,7 +19,14 @@ When we apply GA to find our optimal solutions, we can divide those problems int
 \label{fig:goodData}
 \end{figure}
 
-In the real word, there are many
+In the real word, there are many this kind of simultaneous optimization of multiple objectives problems. People have tried many methods to find the Pareto Optimal Solution. The classical method is to convert multiobjective problem to one objective problem. In paper \cite{NSGA_1994}, author introduced three classical methods: 1. Method of Objective Weighting, 2. Method of Distance Functions, and 3. Min-Max Formulation. All those methods have one common drawback: it can only give us a single-point solution. However, when decision makers make decision, they often need different alternatives. Another significant drawback of those method is they heavily depend on what weight vector or demand level we choose. So those methods are not efficiency and we probably need to try many times to get a acceptable solution.
+
+\subsection{Vector Evaluated Genetic Algorithm(VEGA)}
+
+\subsection{Nondominated Sorting Genetic Algorithm(NSGA)}
 
 \subsection{Nondominated Sorting Genetic Algorithm II(NSGA-II)}
 NSGA-II\cite{NSGA-II} is a very famous multi-objective optimization algorithm which is wide used  to find the optimal solution nowadays. Compare with the previous NSGA, NSGA-II has improved the computational efficiency, elitism, and sharing parameter. For computational complexity of nondominated sorting, it improve from \(O(MN^{3})\) to \(O(MN^{2})\). With the elitism, NSGA-II could not only speed up the GA performance, but also prevent loss of good solutions. Moreover, NSGA II does not need to specify a sharing parameter \(\sigma_{share}\), which is a requirement for pervious multi-objective evolutionary algorithms.
+
+\subsection{Pareto Optimal Solution}
+
