@@ -11,7 +11,14 @@ After the Genetic Algorithm was introduced in 1975 by John Henry Holland\cite{Ho
 
 \subsection{Multiobjective Genetic Algorithm(MOGA)}
 When we apply GA to find our optimal solutions, we can divide those problems into two categories based on the number of objectives: Single Objective problems and Multi-Objective problems. Let's take a simple example for single objectives first. For example we want to find the minimum value of \(y=x^2\) with \(x\in [-3,3]\), it is easy to see that we could achieve the minimun value at \(x=0\). While, when we have two objectives, problem becomes complicated. For example we want to minimize both \(y_{1}=x^2\) and \(y_{2}=(x-2)^2\). Then we won't be able to find a specific \(x\) value for it. From Firuge 1, any points between \(0\) and \(2\) could be a valid compromise solution. 
-\includegraphics[scale=.4]{images/Firgure_1.png}
+
+\begin{figure}[htp] 
+\centering
+\includegraphics[scale=.4]{images/Figure_1.png}
+\caption{Good data.}
+\label{fig:goodData}
+\end{figure}
+
 In the real word, there are many
 
 \subsection{Nondominated Sorting Genetic Algorithm II(NSGA-II)}
