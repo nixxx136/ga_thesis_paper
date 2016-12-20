@@ -1,3 +1,0 @@
-xelatex UMDCS_MSThesis
-biber UMDCS_MSThesis
-xelatex UMDCS_MSThesis
