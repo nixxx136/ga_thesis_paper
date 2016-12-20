@@ -1,1 +1,10 @@
-*.aux *.bbl *.log *.out *.run.xml *.toc *.bcf *.blg *.lof *.lot
+*.aux
+*.bbl
+*.log
+*.out
+*.run.xml
+*.toc
+*.bcf
+*.blg
+*.lof
+*.lot
