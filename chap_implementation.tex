@@ -1,15 +1,60 @@
 \chapter{Implementation}
 \label{chap:impl}
 
-\section{NSGA-II Code Package}
-NSGA-II is a fast and elitist multiobjective genetic algorithm. The source code we are using is from: \url{http://www.iitk.ac.in/kangal/codes.shtml}. And we are using version 1.1 in our problem. In this section, we will take a first look at how NSGA-II works and get familiar with it.
+\section{Steerable GA Explanation}
+Our Steerable Genetic Algorithm take user's feedbacks into account and generate an user preferred solution. Following is the flowchart for our Steerable GA and there are more explanations under the flowchart.
+
+% Define block styles
+
+\tikzstyle{decision} = [diamond, draw, fill=blue!20,
+text width=4.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, node distance=2cm,
+text width=6em, text centered, rounded corners, minimum height=1em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse, fill=red!20, node distance=3cm, minimum height=2em]
+
+\hspace*{1.5em}\vspace*{1.5em}{
+		\begin{tikzpicture}[node distance = 2cm, auto]
+		% \hspace*{3em}
+		% Place nodes
+		\node [block] (init) {start};
+		\node [block, text width=10em, below = .8cm of init] (initpop) {generate initial population};
+		\node [block, below = .81cm of initpop] (calcfitness) {calculate fitness of each individual };
+		%     \node [block, below of=initpop] (evaluate) {evaluate candidate models};
+		%     \node [block, left of=evaluate, node distance=3cm] (update) {update model};
+		\node [block, below = .8cm of calcfitness] (newpop) {create new population};
+		\node [block, right = 1.5cm of newpop] (crossover) {crossover};
+		\node [block, above = 1cm of crossover] (selection) {selection};
+		\node [block, below = 1cm of crossover] (mutation) {mutation};
+		\node [block, below = 1cm of mutation, fill=red!20] (feedback) {feedback};
+		\node [decision, below = .8cm of newpop] (decide) {end condition};
+
+		\node [block, below = .8cm of decide, node distance=2cm] (stop) {stop};
+		    % Draw edges
+	    \path [line] (init) -- (initpop);
+	    \path [line] (initpop) -- (calcfitness);
+	    \path [line] (calcfitness) -- (newpop);
+	    \path [line] ([yshift=0.1cm] newpop.east) -| ([xshift=-.82cm] selection.west) -- (selection.west);
+	    \path [line] (selection) -- (crossover);
+	    \path [line] (crossover) -- (mutation);
+	    \path [line, dashed, draw=red!80] (mutation) -- (feedback);
+	    \path [line, dashed, draw=red!80] (feedback) -| ([xshift=-0.8cm] mutation.west);
+	    \path [line] (mutation) -| ([xshift=.7cm, yshift=-0.1cm] newpop.east) -- ([yshift=-0.1cm] newpop.east);
+	    \path [line] (newpop) -- (decide);
+	    \path [line] (decide) -| node [near start] {no} ([xshift=-1.5cm] newpop.west) -- (newpop);
+		\path [line] (decide) -- node {yes}(stop);
+		\end{tikzpicture}
+	}
+
+
+% NSGA-II is a fast and elitist multiobjective genetic algorithm. The source code we are using is from: \url{http://www.iitk.ac.in/kangal/codes.shtml}. And we are using version 1.1 in our problem. In this section, we will take a first look at how NSGA-II works and get familiar with it.
 
 \subsection{Run and Compile} % Readme, Makefile, global.h, rand.h
-In the code package, there is a Readme file, which tells us some basic information about this code package. The code package is compiled by using Makefile, which has already been provided in the code. This Makefile attempts to compile and link all the existing source files into one single executable. If we want to make some special changes for the code package and do not want to include some of the source code in the future, we should modify the Makefile before we compile the code.
+% In the code package, there is a Readme file, which tells us some basic information about this code package. The code package is compiled by using Makefile, which has already been provided in the code. This Makefile attempts to compile and link all the existing source files into one single executable. If we want to make some special changes for the code package and do not want to include some of the source code in the future, we should modify the Makefile before we compile the code.
 
 \subsection{Input and Output} % problemdef.c .out file, input folder
 
-\subsection{Operators} % 
+\subsection{Operators} %
 
 \section{New Section For Next Important Topic}
 

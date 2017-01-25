@@ -17,13 +17,15 @@
 \addbibresource{UMDCS_MSThesis.bib}
 
 \usepackage{fontspec}
+\usepackage{tikz} % Required for flow chart
+\usetikzlibrary{positioning,shapes,arrows} % Tikz libraries required for the flow chart in the template
 \setmainfont{TimesNewRomanPSMT}
 % \setmathfont{CambriaMath}
 % \setmainfont{Times}
 % \setsansfont{Helvetica}
 
 % This will highlight code examples with nice coloring if you have that in your thesis.
-% 
+%
 % This example uses C++, but there are many nice examples for other languages too.
 %
 % Nice C++ listings example derived from http://timmurphy.org/2014/01/27/displaying-code-in-latex-documents/
@@ -39,7 +41,7 @@
 }
 
 \RequirePackage{amsmath}
-\RequirePackage{amssymb} 
+\RequirePackage{amssymb}
 
 % Supplied by Matt Overby - Spring 2014 - This is a nice command that
 % lets you mark sections you will come back to later.
@@ -48,40 +50,40 @@
 \title{Your Great Title For Your Thesis}
 \author{Penghuan Ni}
 
-\advisor{Professor Advisor Name}  
+\advisor{Professor Advisor Name}
 
-\copyrightyear{2017} 
+\copyrightyear{2017}
 
-\ackfile{acknowledge} 
+\ackfile{acknowledge}
 \dedication{dedication}
 \abstractfile{abstract}
 
-\begin{document} 
- 
-	\frontmatter 
- 
+\begin{document}
+
+	\frontmatter
+
         % You could save some space when initially printing (if you
 	% really need to) by uncommenting this line to single
 	% space
         %
         % \singlespace
-      
-        % Ideally the Introduction to your thesis 
-	\include{chap_intro} 
-	 
-        % Any background necessary to understand your thesis.  This 
-        % can also contain the related work too. 
-	\include{chap_background} 
- 
+
+        % Ideally the Introduction to your thesis
+	\include{chap_intro}
+
+        % Any background necessary to understand your thesis.  This
+        % can also contain the related work too.
+	\include{chap_background}
+
         % Of course, if you wanted a separate chapter for Related
-        % Work, you could make one too. 
-	% \include{chap_relatedwork}     
+        % Work, you could make one too.
+	% \include{chap_relatedwork}
 
-        % The major content for your thesis!  What did you do and how   
+        % The major content for your thesis!  What did you do and how
         % did you do it!
-	\include{chap_implementation}  
+	\include{chap_implementation}
 
-        % It's always good to have a results chapter so you can 
+        % It's always good to have a results chapter so you can
         % present how well your ideas and implementations worked
 	\include{chap_results}
 
@@ -90,15 +92,15 @@
         % insights, or things you learned.  You can include ideas for
         % future extensions and effort here too.
 	\include{chap_conclusion}
-	
-        % If you need an appendix (or appendices), they can be added here 
-	\include{appendix}	 
-	
+
+        % If you need an appendix (or appendices), they can be added here
+	\include{appendix}
+
         % And finally, don't forget the references and bibliography.
         % You can add entries to the file UMDCS_Thesis.bib for your
         % references.  You then need to ``cite'' them in the tex files
         % by using the ~\cite{ReferenceID} tags.
 	\newpage
         \printbibliography
-	
+
 \end{document}
